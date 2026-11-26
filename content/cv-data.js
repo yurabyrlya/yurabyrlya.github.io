@@ -1,5 +1,5 @@
 /* CV content. The ONLY file to edit when the CV content changes.
-   Rules: see STYLE-GUIDE.md (section 3, data model, and section 4, writing rules).
+   Rules: see docs/STYLE-GUIDE.md. After editing run: node scripts/check.mjs && node scripts/readme.mjs (section 3, data model, and section 4, writing rules).
    Companies: Utilita (2022–2023), then Procode (2023 →). My Utilita and MyUtilita v4 are Utilita PRODUCTS built at Procode. */
 window.CV = {
   person: {

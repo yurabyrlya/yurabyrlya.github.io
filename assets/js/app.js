@@ -1,5 +1,5 @@
-/* Rendering and behaviour. Content lives in data.js; do not hard-code CV facts here.
-   See STYLE-GUIDE.md section 6 before changing this file. */
+/* Rendering and behaviour. Content lives in content/cv-data.js; do not hard-code CV facts here.
+   See docs/STYLE-GUIDE.md section 6 before changing this file. */
 (() => {
   const C = window.CV;
   const $ = id => document.getElementById(id);

@@ -24,29 +24,50 @@ An interactive, single-page CV for **Iuri Birlea, Senior Software Engineer**.
 
 ## 2. Folder structure
 
+This folder **is** the `yurabyrlya.github.io` git repo. GitHub Pages serves `main` from the repo root, so a push publishes the site.
+
 ```
-iuri-birlea-cv/
-├── index.html          # Page shell: <head>, header, layout containers, script tags. No CV content.
+yurabyrlya.github.io/
+├── index.html                 # Page shell: <head>, header, layout containers, script tags. No CV content.
 ├── assets/
-│   ├── css/theme.css   # Design tokens (CSS variables), small global rules, PRINT styles.
-│   └── js/
-│       ├── data.js     # ALL CV content (window.CV). The only file to edit for content changes.
-│       └── app.js      # Rendering and behaviour. Reads window.CV; never hard-codes CV facts.
-├── STYLE-GUIDE.md      # This file.
-├── AGENTS.md           # Short pointer for AI tools; points here.
-└── README.md           # CV summary shown on the GitHub repo page. Generated from data.js; keep it in step when content changes.
+│   ├── css/theme.css          # Design tokens (CSS variables), small global rules, PRINT styles.
+│   └── js/app.js              # Rendering and behaviour. Reads window.CV; never hard-codes CV facts.
+├── content/
+│   └── cv-data.js             # ALL CV content (window.CV). The only file to edit for content changes.
+├── docs/
+│   └── STYLE-GUIDE.md         # This file.
+├── scripts/                   # Plain Node (no npm packages). Not used by the site at runtime.
+│   ├── check.mjs              # Validates content against sections 3 and 4.
+│   └── readme.mjs             # Regenerates README.md from content/cv-data.js (--check: fail if stale).
+├── .github/
+│   ├── copilot-instructions.md  # Points agents to AGENTS.md.
+│   └── workflows/check.yml      # Runs both scripts on every push and PR.
+├── AGENTS.md                  # Agent entry point: where to edit, commands, done checklist.
+├── README.md                  # GENERATED CV summary for the GitHub repo page. Never hand-edit.
+├── .editorconfig  .gitignore  .nojekyll
 ```
 
 **Rules:**
-- **Content** changes go in `data.js` only.
-- **Behaviour or layout** changes go in `app.js` and `index.html`.
-- **Colours, fonts, radius and print** changes go in `theme.css`.
-- Don't create new files unless a new *kind* of thing is needed. If you do, add it to this tree.
-- Script order matters: `data.js` must load before `app.js`.
+- **Content** changes go in `content/cv-data.js` only, then regenerate `README.md`.
+- **Behaviour or layout** changes go in `assets/js/app.js` and `index.html`.
+- **Colours, fonts, radius and print** changes go in `assets/css/theme.css`.
+- **Rules** changes go in this guide (and in `scripts/check.mjs` if they can be checked automatically).
+- Don't create new top-level folders. If you need a new kind of file, add it to this tree.
+- Script order matters: `content/cv-data.js` must load before `assets/js/app.js`.
+
+## 2.1 Workflow (humans and agents)
+
+```bash
+# 1. edit content/cv-data.js (or code/style files)
+node scripts/check.mjs        # 2. content rules pass
+node scripts/readme.mjs       # 3. regenerate README.md
+open index.html               # 4. look at it (desktop, 375px, print preview)
+git add -A && git commit -m "…" && git push   # 5. CI re-checks; Pages publishes in ~1 min
+```
 
 ---
 
-## 3. Data model (`assets/js/data.js`)
+## 3. Data model (`content/cv-data.js`)
 
 `window.CV` has exactly these keys: `person`, `metrics`, `eras`, `skills`, `milestones`, `growth`.
 
@@ -97,14 +118,14 @@ The filter list, as strings. Every tag used in `milestones[].tags` **must** be i
 | `date` | `YYYY-MM` (the delivery or go-live month) |
 | `era` | An existing `eras[].id` |
 | `who` | `"I"` (my work) or `"We"` (team work I was part of) |
-| `type` | One of `build`, `launch`, `security`, `decision`, `people`, `ops` (metadata only) |
+| `type` | One of `build`, `launch`, `security`, `payments`, `devops`, `modernise`, `decision`, `idea`, `ownership`, `people` (metadata only) |
 | `icon` | **One** emoji |
 | `title` | About 6 words or fewer, starts with a verb or noun, no full stop |
 | `oneLiner` | One sentence, about 18 words or fewer |
 | `metric` | The single strongest number, or `null`. `value` is short (`"£5.1M"`, `"23/23"`, `"0"`) |
 | `tags` | 2–5 entries from `skills` |
 | `star.s` / `star.t` | One sentence each |
-| `star.a` | 3–5 bullets: what **I** did, starting with a verb |
+| `star.a` | 1–5 bullets (3–5 preferred): what **I** did, starting with a verb. Never pad with invented detail |
 | `star.r` | 1–3 bullets: outcomes, with numbers where possible |
 
 ### 3.6 `growth`
@@ -190,7 +211,7 @@ The filter list, as strings. Every tag used in `milestones[].tags` **must** be i
 - Printing shows **only** `#print-cv`: plain black text on A4, in Arial at 9.5pt, with no colours, chips, cards or emoji.
 - Sections, in this order: **Profile, Key results, Skills, Experience, Separate project, Lessons learned**.
 - Experience is grouped by company · product with its period, then one line per milestone, then a `Result:` line and its `[tags]`.
-- Print is generated from `data.js`, so new content appears automatically. Never hand-write print HTML.
+- Print is generated from `content/cv-data.js`, so new content appears automatically. Never hand-write print HTML.
 
 ### 5.4 Copy for LLM (Markdown)
 - `App.markdown()` must stay **lossless**: every milestone with its full STAR story and tags, plus person, metrics, skills, eras and growth.
@@ -220,7 +241,7 @@ The filter list, as strings. Every tag used in `milestones[].tags` **must** be i
 ## 7. Recipes
 
 **Add a milestone**
-1. Add an object to `milestones` in `data.js`, following 3.5. Order in the array doesn't matter; it's sorted by date.
+1. Add an object to `milestones` in `content/cv-data.js`, following 3.5. Order in the array doesn't matter; it's sorted by date.
 2. Use an existing `era`. Make sure every tag is in `skills`, and add new skills if needed.
 3. If it's a headline result, consider updating `person.highlights` (keep exactly 4) and `metrics`.
 
@@ -234,6 +255,7 @@ The filter list, as strings. Every tag used in `milestones[].tags` **must** be i
 
 ## 8. Definition of done (check before finishing)
 
+0. `node scripts/check.mjs` passes and `node scripts/readme.mjs --check` reports README is up to date.
 1. Open `index.html` and check the browser console has **no errors**.
 2. At **375px wide**: no horizontal page scroll, every button tappable, cards readable.
 3. At **1280px wide**: sidebar on the left, list on the right, sidebar stays in view.
@@ -246,7 +268,8 @@ The filter list, as strings. Every tag used in `milestones[].tags` **must** be i
 
 ## 9. Don'ts
 
-- Don't add a build step, a framework, analytics, trackers or extra CDNs.
+- Don't add a build step, a framework, npm dependencies, analytics, trackers or extra CDNs.
+- Don't hand-edit `README.md`; regenerate it.
 - Don't hard-code CV facts in `app.js` or `index.html`.
 - Don't add links other than LinkedIn, or other people's names or ticket IDs.
 - Don't present My Utilita or MyUtilita v4 as companies.
