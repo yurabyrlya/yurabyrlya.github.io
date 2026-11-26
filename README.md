@@ -101,6 +101,6 @@
 
 <details><summary>About this repository</summary>
 
-Static site: plain HTML, the Tailwind CDN and vanilla JavaScript, with no build step. All content is in `assets/js/data.js`. Rules for changes are in [STYLE-GUIDE.md](./STYLE-GUIDE.md) (also for AI tools: [AGENTS.md](./AGENTS.md)). Publishing steps are in `DEPLOY.md`, in the source folder. The previous site is kept in [`/old`](https://yurabyrlya.github.io/old/).
+Static site: plain HTML, the Tailwind CDN and vanilla JavaScript, with no build step. All content is in `assets/js/data.js`. Rules for changes are in [STYLE-GUIDE.md](./STYLE-GUIDE.md) (also for AI tools: [AGENTS.md](./AGENTS.md)).
 
 </details>
