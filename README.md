@@ -1,27 +1,106 @@
-# Iuri Birlea: Interactive CV
+# Iuri Birlea
 
-A single-page, interactive CV with a recruiter summary, search, a skill filter, STAR stories, dark mode, a text-only print version, and a **Copy for LLM** button that copies the whole CV as Markdown.
+**Senior Software Engineer** (since 2023) · United Kingdom
 
-## View it
+[![View interactive CV](https://img.shields.io/badge/View-Interactive%20CV-4f46e5?style=for-the-badge)](https://yurabyrlya.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-iuri--birlea-0a66c2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/iuri-birlea/)
 
-Open `index.html` in a browser. There's nothing to install or build. The page needs an internet connection for the Tailwind CDN and Google Fonts.
+> Back-end & cloud engineer who makes risky changes (logins, payments, releases) safe and measurable.
 
-## Update the content
+**Companies:** Utilita (Web Development, 2022–23) → Procode (2023–), building Utilita products. *My Utilita* and *MyUtilita v4* are Utilita products I built at Procode.
 
-Edit **`assets/js/data.js`** only. The rules for each field and the writing style are in [STYLE-GUIDE.md](./STYLE-GUIDE.md).
+## Key results
 
-## Structure
-
-| Path | Purpose |
+| | |
 |---|---|
-| `index.html` | Page shell and layout containers |
-| `assets/js/data.js` | All CV content |
-| `assets/js/app.js` | Rendering, search and filter, print CV, Markdown export |
-| `assets/css/theme.css` | Design tokens and print styles |
-| `STYLE-GUIDE.md` | Rules for people and LLMs making changes |
-| `AGENTS.md` | Pointer for AI coding tools |
-| `DEPLOY.md` | Step-by-step deploy to https://yurabyrlya.github.io/ |
+| 💷 **≈ £5.1M a year** | saved in card fees with Pay by Bank (214,567 payments a month × £2), rolled out to 100% of customers |
+| 🔐 **1M accounts on 2FA** | 100% of customers protected, with only 60 support contacts |
+| 🧪 **30M users at ~1.5 ms** | central authorization redesign in Go + OPA (~16k checks/s per copy) |
+| 🟢 **Zero-downtime releases** | blue/green deployments on Azure Container Apps |
+| 📦 **23/23 requirements** | AI product: catalogue ingestion shipped on Cosmetrics AI |
 
-## Print / PDF
+## Core skills
 
-Use **⎙ Print / PDF** in the recruiter card, or Cmd+P. You get a compact, text-only A4 CV.
+`PHP` · `Laravel` · `Vue.js` · `REST & OpenAPI` · `Azure APIM` · `Azure Container Apps` · `Azure DevOps` · `AWS` · `Docker` · `MySQL` · `Redis` · `Python` · `Django` · `OpenAI API` · `Go` · `OPA/Rego`
+
+## Experience
+
+### Procode · Auth
+
+*Senior Software Engineer · 2026 →*
+
+| When | Highlight | Result |
+|---|---|---|
+| Nov 2026 | 🧪 **Central authorization R&D in Go + OPA**<br>Found the design's breaking point, then rebuilt it: 30M users at ~1.5 ms. | **30M** users at ~1.5 ms/check |
+| Nov 2026 | ☁️ **Azure solution, 10-stack benchmark & roadmap**<br>Costed Azure against AWS, benchmarked 10 languages, and planned 4 security-gated phases. | **10** stacks benchmarked |
+| Nov 2026 | 🛡️ **Policy-as-code for API access rules**<br>Every access-rule change tested, scanned and approved by Security. | **≥90%** test coverage gate |
+
+### Procode · MyUtilita v4 (Utilita product)
+
+*Senior Software Engineer · 2025 – 2026*
+
+| When | Highlight | Result |
+|---|---|---|
+| Oct 2026 | 🧹 **Clean programme wind-down**<br>Stopped cloud costs when MU4 paused — without losing any work. | Costs and security exposure stopped |
+| Sept 2026 | 🔑 **Secure login service (PKCE)**<br>Login on day one, then a safer login service built in four phases. | **4** phases to production |
+| Jul 2026 | 🟢 **Zero-downtime releases**<br>Blue/green releases with an instant way back. | **0** downtime |
+| May 2026 | ☁️ **Customer API on Azure Container Apps**<br>Containerised and connected in 5 environments — no stored passwords. | **5** environments |
+| Mar 2026 | 🎚️ **Feature switches per customer**<br>One central switchboard for 15 features — no app release needed. | **15** features switchable |
+| Nov 2025 | 🧩 **API contracts & first MU4 release**<br>Wrote the contracts that let app and back-end teams build in parallel. | **0** breakages on first release |
+| Oct 2025 | 🎤 **Knowledge sharing & hiring**<br>Talks on coding style, PHP, OpenAPI, APIM and PHP UK 2026; interviewing. | **5** talks |
+| Jul 2025 | ⚙️ **API gateway automation**<br>Gateway changes became recorded, tested and released automatically. | Live since July 2025 |
+
+### Procode · My Utilita (Utilita product)
+
+*Senior Software Engineer · 2023 – 2025*
+
+| When | Highlight | Result |
+|---|---|---|
+| Apr 2025 | 🏦 **Pay by Bank — £5.1M a year saved**<br>Built NatWest Open Banking top-ups, rolled out to 100% of customers. | **£5.1M** a year in card fees saved |
+| Aug 2024 | 🔐 **Two-factor login for 1M accounts**<br>Built 2FA and rolled it out to 100% of customers in careful waves. | **1M** accounts · 60 support contacts |
+| Mar 2024 | 📣 **Automatic, meter-aware outage messages**<br>Outage warnings now appear automatically — only for affected meters. | **8/8** test scenarios passed |
+| Dec 2023 | 💡 **Hackathon: 2FA prototype**<br>My hackathon prototype became two-factor login for a million accounts. | Became the basis of production 2FA — see the 2FA rollout |
+
+### Utilita · Web Development team
+
+*Software Engineer → Senior (2023) · 2022 – 2023*
+
+| When | Highlight | Result |
+|---|---|---|
+| Sept 2023 | 🔒 **Closed a file-upload security gap**<br>Fixed a production vulnerability, then helped rebuild the feature properly. | Vulnerability closed in production (Sep 2023) |
+| Aug 2023 | 🏗️ **Modernised a legacy website**<br>Upgraded Prime four framework versions in months — without breaking it. | **5.7 → 8** Laravel |
+| Feb 2023 | ⚡ **Energy display for the Energy Hubs**<br>Built the energy-consumption app used in Utilita's high-street hubs. | Released February 2023 |
+| Nov 2022 | 🚀 **Procode website live — then faster**<br>Took the company website live, then improved its Google speed scores. | **↑** Lighthouse scores |
+| Jul 2022 | 🔧 **SIM Gateway & SIM CRM on AWS**<br>Secured, Dockerised and deployed a SIM gateway and its CRM to AWS. | First cloud deployments in my career |
+
+## Separate project
+
+### Cosmetrics AI
+
+*Product Developer · 2026*
+
+| When | Highlight | Result |
+|---|---|---|
+| Nov 2026 | ⭐ **Customer ratings shape AI recommendations**<br>Ratings boost liked products and hide disliked ones. | **8/8** acceptance tests passed |
+| Oct 2026 | 📦 **Safe bulk catalogue uploads for brands**<br>Upload, preview, review in bulk, then publish with a final safety check. | **23/23** requirements met |
+| Jul 2026 | 🤖 **LLM & image AI integration**<br>OpenAI and Gemini behind one switchable layer, LLM photo checks in parallel with an ML hair-type model. | **2** LLM providers, switchable |
+| Apr 2026 | 🚢 **CI/CD to DigitalOcean**<br>Every push builds, tags and redeploys automatically — and failed deploys can't hide. | **0** manual deploy steps |
+
+## Lessons learned
+
+- **Hotfixing refunds in production:** Reproduce the full problem outside production first.
+- **Small deployment change, big incident:** Added automatic health checks to releases.
+- **Over-engineering a simple problem:** Start with the simplest thing that works.
+
+## Want the full story?
+
+- **[Interactive CV](https://yurabyrlya.github.io/)**: search, filter by skill, and a full **STAR story** (Situation, Task, Action, Result) for every highlight.
+- **Print / PDF**: a compact, text-only version from the site.
+- **Copy for LLM**: the whole CV as Markdown from the site, ready to paste into an AI assistant.
+
+---
+
+<details><summary>About this repository</summary>
+
+Static site: plain HTML, the Tailwind CDN and vanilla JavaScript, with no build step. All content is in `assets/js/data.js`. Rules for changes are in [STYLE-GUIDE.md](./STYLE-GUIDE.md) (also for AI tools: [AGENTS.md](./AGENTS.md)). Publishing steps are in `DEPLOY.md`, in the source folder. The previous site is kept in [`/old`](https://yurabyrlya.github.io/old/).
+
+</details>

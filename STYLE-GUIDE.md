@@ -34,7 +34,8 @@ iuri-birlea-cv/
 │       └── app.js      # Rendering and behaviour. Reads window.CV; never hard-codes CV facts.
 ├── STYLE-GUIDE.md      # This file.
 ├── AGENTS.md           # Short pointer for AI tools; points here.
-└── README.md           # Human quick start.
+├── README.md           # CV summary shown on the GitHub repo page. Generated from data.js; keep it in step when content changes.
+└── DEPLOY.md           # How to publish to https://yurabyrlya.github.io/ (source folder only, not published).
 ```
 
 **Rules:**
