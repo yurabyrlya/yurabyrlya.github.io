@@ -1,14 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/yurabyrlya.github.io/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-    <script type="module" crossorigin src="/assets/index-DBGbitBU.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-COv3Nfm_.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iuri Birlea · Senior Software Engineer · CV</title>
+<meta name="description" content="Iuri Birlea, Senior Software Engineer: payments, login security, APIs, Azure, Go and OPA authorization. Interactive CV with STAR stories.">
+<meta name="theme-color" content="#4f46e5">
+<meta property="og:title" content="Iuri Birlea · Senior Software Engineer">
+<meta property="og:description" content="£5.1M a year saved with Pay by Bank · 2FA for 1M accounts · Go + OPA authorization at 30M users.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ctext x='16' y='21' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3EIB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/theme.css">
+<script>if (localStorage.getItem('cv-dark') === '1' || (!localStorage.getItem('cv-dark') && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      colors: { accent: 'rgb(var(--accent) / <alpha-value>)', accentsoft: 'rgb(var(--accent-soft) / <alpha-value>)' },
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'ui-monospace', 'monospace'] }
+    } }
+  };
+</script>
+</head>
+<body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+
+<div id="print-cv" aria-hidden="true"></div>
+
+<a href="#work" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-white">Skip to work history</a>
+
+<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">
+  <div class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+    <a href="#top" class="flex min-w-0 items-center gap-2.5">
+      <span class="grid h-8 w-8 flex-none place-items-center rounded-lg bg-accent text-xs font-bold text-white">IB</span>
+      <span class="min-w-0"><span class="block truncate text-sm font-bold leading-tight" id="hdr-name"></span><span class="block truncate text-xs text-slate-500 dark:text-slate-400" id="hdr-title"></span></span>
+    </a>
+    <div class="flex flex-none items-center gap-1">
+      <a id="hdr-linkedin" target="_blank" rel="noopener" class="grid h-11 w-11 place-items-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-accent dark:hover:bg-slate-800" aria-label="LinkedIn profile">
+        <span class="grid h-5 w-5 place-items-center rounded-sm bg-current"><span class="text-[11px] font-bold text-white dark:text-slate-950">in</span></span></a>
+      <button onclick="App.toggleDark()" class="grid h-11 w-11 place-items-center rounded-lg text-lg text-slate-500 hover:bg-slate-100 hover:text-accent dark:hover:bg-slate-800" aria-label="Toggle dark mode" id="dark-btn">◐</button>
+    </div>
+  </div>
+</header>
+
+<div id="top" class="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-10 lg:py-10">
+
+  <aside class="min-w-0 space-y-4 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:pb-4 lg:pr-1 no-scrollbar">
+    <section id="summary" aria-labelledby="summary-h" class="rounded-[var(--radius)] border border-accent/30 bg-accentsoft/60 p-5"></section>
+
+    <section aria-label="Search and filter" class="rounded-[var(--radius)] border border-slate-200 p-4 dark:border-slate-800 sm:p-5">
+      <label for="q" class="sr-only">Search work</label>
+      <div class="relative">
+        <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">⌕</span>
+        <input id="q" type="search" placeholder="Search work, e.g. Azure, 2FA, Go" autocomplete="off"
+          class="h-11 w-full rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-base outline-none ring-accent/40 focus:ring-4 dark:border-slate-700 dark:bg-slate-900 sm:text-sm">
+      </div>
+      <div class="mt-4 flex items-center justify-between">
+        <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Skills</p>
+        <button id="clear" onclick="App.clearFilters()" class="hidden text-xs font-medium text-accent hover:underline">Clear</button>
+      </div>
+      <div id="skills" class="no-scrollbar -mx-4 mt-2 flex gap-2 overflow-x-auto px-4 pb-1 sm:-mx-5 sm:px-5 lg:mx-0 lg:block lg:space-y-1 lg:overflow-visible lg:px-0 lg:pb-0"></div>
+    </section>
+  </aside>
+
+  <main id="work" class="min-w-0">
+    <p id="status" class="mb-4 text-sm text-slate-500 dark:text-slate-400" aria-live="polite"></p>
+    <div id="list" class="space-y-10"></div>
+    <section id="lessons" class="mt-12"></section>
+    <footer class="mt-12 border-t border-slate-200 pt-6 text-xs text-slate-400 dark:border-slate-800">
+      Built with plain HTML and Tailwind. Content: <code>assets/js/data.js</code>. Printing gives a text-only CV.
+    </footer>
+  </main>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
 </html>

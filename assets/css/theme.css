@@ -1,0 +1,42 @@
+/* Professional theme. Design tokens live here; layout uses Tailwind utility classes in index.html / app.js.
+   See STYLE-GUIDE.md section 5 before changing anything in this file. */
+:root {
+  --accent: 79 70 229;        /* indigo-600 */
+  --accent-soft: 238 242 255; /* indigo-50 */
+  --radius: 14px;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+.dark { --accent: 129 140 248; --accent-soft: 30 27 75; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 4.5rem; }
+body { font-family: var(--font-sans); }
+mark { background: rgb(var(--accent) / .18); color: inherit; border-radius: 3px; padding: 0 2px; }
+summary { list-style: none; }
+summary::-webkit-details-marker { display: none; }
+details[open] > summary .chev { transform: rotate(90deg); }
+.fade-in { animation: fade .25s ease both; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Print: a plain, structured, text-only CV (#print-cv). The interactive page is hidden. */
+#print-cv { display: none; }
+@media print {
+  @page { size: A4; margin: 12mm 14mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  body > *:not(#print-cv) { display: none !important; }
+  #print-cv { display: block !important; font: 9.5pt/1.35 Arial, Helvetica, sans-serif; color: #000; }
+  #print-cv h1 { font-size: 17pt; font-weight: 700; margin: 0; }
+  #print-cv .sub { margin: 1pt 0 0; }
+  #print-cv h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; border-bottom: .6pt solid #000; margin: 9pt 0 3pt; padding-bottom: 1pt; }
+  #print-cv h3 { font-size: 10pt; font-weight: 700; margin: 6pt 0 1pt; display: flex; justify-content: space-between; gap: 8pt; break-after: avoid; }
+  #print-cv h3 span { font-weight: 400; white-space: nowrap; }
+  #print-cv .role { font-style: italic; margin: 0 0 2pt; }
+  #print-cv ul { margin: 0; padding-left: 12pt; }
+  #print-cv li { margin: 0 0 2pt; break-inside: avoid; }
+  #print-cv .res { color: #333; }
+  #print-cv .tech { color: #555; }
+  #print-cv p { margin: 0 0 2pt; }
+}

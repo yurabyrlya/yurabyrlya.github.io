@@ -18,9 +18,9 @@
 soft surface. Pros include affordability and reliable performance, but they may not be the
 best choice for prolonged wear.`},{id:2,name:"Little Angels (ASDA)",image:"little_angels.jpg",description:`Little Angels nappies are reasonably reliable and well suited for everyday use. Their
 advantages are excellent pricing and comfort, although they can sometimes struggle with
-heavy loads.`},{id:3,name:"Fried Flo (Tesco)",image:"/fred_flo.jpg",description:`Fried Flo nappies demonstrate decent quality with a pleasing design. They are budget
+heavy loads.`},{id:3,name:"Fried Flo (Tesco)",image:"/old/fred_flo.jpg",description:`Fried Flo nappies demonstrate decent quality with a pleasing design. They are budget
 friendly and quite comfortable, but they may not effectively contain odors.`},{id:4,name:"Mamia (Aldi)",image:"mamia.jpg",description:`Mamia offers good nappies at a low price, featuring softness and good absorbency. Pros
-include accessibility and a pleasant material, but sizing issues can occasionally arise.`},{id:5,name:"Boots Baby",image:"/baby.png",description:`Boots Baby nappies strike a balance between quality and cost, providing softness and solid
+include accessibility and a pleasant material, but sizing issues can occasionally arise.`},{id:5,name:"Boots Baby",image:"/old/baby.png",description:`Boots Baby nappies strike a balance between quality and cost, providing softness and solid
 absorbency. Their strengths lie in the price to quality ratio, although they may not always be
 the most durable option.`},{id:6,name:"Little Ones (Sainsbury's)",image:"little_ones.png",description:`Little Ones nappies ensure comfort and protection, making them easy to put on and take off.
 Pros include convenience and availability, but they might not be ideal for active toddlers as
